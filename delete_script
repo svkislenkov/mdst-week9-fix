@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# List of directory names with underscores and numbers included
+names=("Banana Red 1" "Kohlrabi 1" "Pear 3" "Grapefruit Pink 1" "Onion Red Peeled 1"
+       "Maracuja 1" "Physalis with Husk 1" "Tangelo 1" "Kumquats 1" "Lemon Meyer 1"
+       "Banana Lady Finger 1" "Cucumber Ripe 2" "Cucumber Ripe 1" "Carambula 1"
+       "Eggplant long 1" "Onion White 1" "Corn Husk 1" "Peach 2" "Pitahaya Red 1"
+       "Tomato Heart 1" "Chestnut 1" "Beetroot 1" "Melon Piel de Sapo 1" "Rambutan 1"
+       "Pear Kaiser 1" "Pear Forelle 1" "Cactus fruit 1" "Pepino 1" "Salak 1"
+       "Pear Abate 1" "Pear Stone 1" "Mangostan 1" "Tomato not Ripened 1"
+       "Pineapple Mini 1")
+
+
+# Loop through each name and attempt to delete the directory
+parent_dir="mdst-classifer-stater/fruits-360_dataset_100x100/fruits-360/Test/"
+for name in "${names[@]}"; do
+
+    if [ -d "$parent_dir$name" ]; then
+        rm -r -- "$parent_dir$name"
+        echo "Deleted directory: $name"
+    else
+        echo "Directory not found: $name"
+    fi
+done
