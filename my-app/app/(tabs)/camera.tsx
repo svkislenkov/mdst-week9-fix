@@ -9,7 +9,6 @@ import {
   Modal,
 } from "react-native";
 import ImageViewer from "../../components/ImageViewer";
-// import RNFetchBlob from "rn-fetch-blob";
 
 const PlaceholderImage = require("@/assets/images/background-image.png");
 
@@ -72,25 +71,17 @@ export default function App() {
         type: "image/jpeg",
         name: "photo.jpg",
       };
-      
-      let blob = new Blob([imageData], { type: "image/jpeg" });
+      console.log("Image data being sent:", imageData);
 
-      const formData = new FormData();
-      formData.append("image", blob, "photo.jpg");
-
-      // formData.append("image", {
-      //   uri: imageData.uri,
-      //   type: imageData.type,
-      //   name: imageData.name,
-      // });
+      formData.append("image", imageData as any);
 
       console.log("Sending POST request to server...");
-      const response = await fetch("http://172.30.123.55:5003/predict", {
+      const response = await fetch("http://192.168.1.135:5003/predict", {
         method: "POST",
         body: formData,
-        // headers: {
-        //   "Content-Type": "multipart/form-data",
-        // },
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
 
       console.log("Response status:", response.status);
