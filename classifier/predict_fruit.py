@@ -48,7 +48,7 @@ def predict():
     # TODO: Load the model
     # Hint: Use try-except for error handling
     try:
-        model = tf.keras.models.load_model('classifier/fruitclassifier.keras')
+        model = tf.keras.models.load_model('fruitclassifier.keras')
     except Exception as e:
         print('cant open model')
         return jsonify({'error': 'cant open model'}), 500
@@ -68,7 +68,7 @@ def predict():
     
     # TODO: Load fruits dictionary from 'Backend/directories.txt'
     # Hint: Use ast.literal_eval()
-    with open('classifier/directories.txt', 'r') as f:
+    with open('directories.txt', 'r') as f:
         fruits = ast.literal_eval(f.read())
     
     # TODO: Return prediction
