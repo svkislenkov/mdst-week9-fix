@@ -76,7 +76,7 @@ export default function App() {
       formData.append("image", imageData as any);
 
       console.log("Sending POST request to server...");
-      const response = await fetch("http://192.168.1.135:5003/predict", {
+      const response = await fetch("http://35.1.11.148:5003", {
         method: "POST",
         body: formData,
         headers: {
